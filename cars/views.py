@@ -1,3 +1,4 @@
+from re import search
 from django.shortcuts import render
 from cars.models import Car
 
@@ -9,3 +10,4 @@ def cars_view(request):
         'cars.html', 
         {'cars': cars}
     )
+
