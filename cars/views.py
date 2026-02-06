@@ -3,11 +3,16 @@ from cars.models import Car
 
 def cars_view(request):
     cars = Car.objects.all()
+    search = request.GET.get('search')
+    
+    if search is not None:
+        cars = cars.filter(model__icontains=search)
 
     return render(
         request, 
         'cars.html', 
         {'cars': cars}
     )
+
 
 
